@@ -6,7 +6,10 @@ This repository contains a comprehensive collection of C++ solutions for classic
 
 - **ArraysAndStrings/**: Problems and solutions related to arrays and strings, including manipulation, searching, and pattern matching.
 - **BinarySearch/**: Binary search and its applications on arrays and matrices.
+- **BitManipulation/**: Bitwise operations and problems involving binary representations.
+- **Graphs/**: Graph algorithms including traversal, shortest paths, connectivity, and topological sorting.
 - **Hashing/**: Problems utilizing hash tables for efficient lookups and frequency counting.
+- **Heaps/**: Heap and priority queue problems, including finding kth largest/smallest elements and merging sorted data.
 - **LinkedList/**: Classic linked list operations, including reversal, merging, and cycle detection.
 - **Pointers/**: Two-pointer and multiple-pointer techniques for array and string problems.
 - **Queues/**: Queue implementations and problems, including circular queues and queue using stacks.
