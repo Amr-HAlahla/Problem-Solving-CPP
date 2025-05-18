@@ -1,81 +1,97 @@
 #include <iostream>
 #include <vector>
 #include <stack>
+#include <algorithm>
 using namespace std;
 
-class Solution {
-private:
-    // First DFS to fill stack with finishing times
-    void dfs1(int u, vector<vector<int>>& adj, vector<bool>& visited, stack<int>& st) {
-        visited[u] = true;
-        for (int v : adj[u]) {
-            if (!visited[v]) {
-                dfs1(v, adj, visited, st);
-            }
-        }
-        st.push(u); // Push node after exploring its neighbors
+void dfs1(int u, vector<vector<int>> &adj, vector<bool> &visited, stack<int> &st)
+{
+    visited[u] = true;
+    for (int v : adj[u])
+    {
+        if (!visited[v])
+            dfs1(v, adj, visited, st);
     }
-    
-    // Second DFS to collect SCC
-    void dfs2(int u, vector<vector<int>>& adjT, vector<bool>& visited, vector<int>& scc) {
-        visited[u] = true;
-        scc.push_back(u);
-        for (int v : adjT[u]) {
-            if (!visited[v]) {
-                dfs2(v, adjT, visited, scc);
-            }
-        }
-    }
-    
-public:
-    vector<vector<int>> findSCC(int n, vector<vector<int>>& edges) {
-        // Step 1: Build adjacency lists
-        vector<vector<int>> adj(n), adjT(n); // adj: original, adjT: transposed
-        for (auto& edge : edges) {
-            int u = edge[0], v = edge[1];
-            adj[u].push_back(v);    // Original graph
-            adjT[v].push_back(u);   // Transposed graph
-        }
-        
-        // Step 2: First DFS to get finishing times
-        vector<bool> visited(n, false);
-        stack<int> st;
-        for (int i = 0; i < n; i++) {
-            if (!visited[i]) {
-                dfs1(i, adj, visited, st);
-            }
-        }
-        
-        // Step 3: Second DFS on transposed graph
-        fill(visited.begin(), visited.end(), false); // Reset visited
-        vector<vector<int>> result;
-        while (!st.empty()) {
-            int u = st.top();
-            st.pop();
-            if (!visited[u]) {
-                vector<int> scc;
-                dfs2(u, adjT, visited, scc);
-                result.push_back(scc);
-            }
-        }
-        
-        return result;
-    }
-};
+    st.push(u);
+}
 
-int main() {
-    int n = 5;
-    vector<vector<int>> edges = {{0,1}, {1,2}, {2,0}, {1,3}, {3,4}};
-    Solution sol;
-    vector<vector<int>> sccs = sol.findSCC(n, edges);
-    for (auto& scc : sccs) {
-        cout << "[";
-        for (int i = 0; i < scc.size(); i++) {
-            cout << scc[i];
-            if (i < scc.size() - 1) cout << ",";
-        }
-        cout << "] ";
+void dfs2(int u, vector<vector<int>> &adjT, vector<bool> &visited, vector<int> &component)
+{
+    visited[u] = true;
+    component.push_back(u);
+    for (int v : adjT[u])
+    {
+        if (!visited[v])
+            dfs2(v, adjT, visited, component);
     }
-    cout << endl; // Output: [0,1,2] [3] [4]
+}
+
+vector<vector<int>> getStronglyConnectedComponents(int n, vector<vector<int>> &edges)
+{
+    vector<vector<int>> adj(n), adjT(n);
+    for (auto &edge : edges)
+    {
+        int u = edge[0], v = edge[1];
+        adj[u].push_back(v);
+        adjT[v].push_back(u); // transpose
+    }
+
+    // Step 1: DFS and push to stack in postorder
+    vector<bool> visited(n, false);
+    stack<int> st;
+    for (int i = 0; i < n; ++i)
+    {
+        if (!visited[i])
+            dfs1(i, adj, visited, st);
+    }
+
+    // Step 2: Transposed DFS based on finishing times
+    fill(visited.begin(), visited.end(), false);
+    vector<vector<int>> sccs;
+
+    while (!st.empty())
+    {
+        int u = st.top();
+        st.pop();
+        if (!visited[u])
+        {
+            vector<int> component;
+            dfs2(u, adjT, visited, component);
+            sccs.push_back(component);
+        }
+    }
+
+    return sccs;
+}
+
+int main()
+{
+    int n = 8;
+    vector<vector<int>> edges = {
+        {0, 1}, {1, 2}, {2, 0}, // SCC1
+        {3, 1},
+        {3, 2}, // points into SCC1
+        {4, 3},
+        {4, 5},
+        {5, 4}, // SCC2
+        {6, 5},
+        {6, 7},
+        {7, 6} // SCC3
+    };
+
+    vector<vector<int>> sccs = getStronglyConnectedComponents(n, edges);
+
+    cout << "Strongly Connected Components:\n";
+    for (const auto &component : sccs)
+    {
+        for (int node : component)
+            cout << node << " ";
+        cout << endl;
+    }
+
     return 0;
 }
+/*
+The first DFS stores vertices in postorder (finished last on top of stack).
+The second DFS on the transposed graph finds each SCC by popping from the stack.
+*/
