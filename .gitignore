@@ -1,0 +1,27 @@
+# Ignore all .exe files
+*.exe
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore build and temp files
+*.obj
+*.o
+*.out
+*.log
+*.tmp
+*.user
+*.suo
+*.pdb
+*.idb
+*.class
+*.dll
+*.lib
+*.bin
+*.cache
+*.pyc
+__pycache__/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
