@@ -3,6 +3,7 @@
 #include <unordered_set>
 using namespace std;
 
+// Returns the maximum number of vowels in any substring of length k in s.
 int maxVowels(string s, int k)
 {
     if (k > s.length())

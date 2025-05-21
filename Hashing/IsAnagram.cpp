@@ -4,7 +4,7 @@
 using namespace std;
 
 // Returns true if s and t are anagrams
-bool isAnagram(const string &s, const string &t)
+bool isAnagram(string &s, string &t)
 {
     if (s.length() != t.length())
         return false;
@@ -17,6 +17,22 @@ bool isAnagram(const string &s, const string &t)
             return false;
         counts[c]--;
     }
+    return true;
+}
+
+bool isAnagram2(const string &s, const string &t)
+{
+    if (s.length() != t.length())
+        return false;
+
+    unordered_map<char, int> counts;
+    for (char c : s)
+        counts[c]++;
+    for (char c : t)
+        counts[c]--;
+    for (const auto &pair : counts)
+        if (pair.second != 0)
+            return false;
     return true;
 }
 

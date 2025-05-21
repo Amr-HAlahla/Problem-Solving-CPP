@@ -4,6 +4,9 @@
 #include <limits>
 using namespace std;
 
+/**
+ * Returns the minimal length of a contiguous subarray with sum >= target, or 0 if none exists.
+ */
 int minSubArray(vector<int> &nums, int target)
 {
     int minLength = std::numeric_limits<int>::max();

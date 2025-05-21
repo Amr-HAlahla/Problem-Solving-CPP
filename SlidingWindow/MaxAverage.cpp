@@ -19,7 +19,7 @@ double maxAverage(vector<int> &nums, int k)
     for (int i = k; i < nums.size(); i++)
     {
         sum += nums[i] - nums[i - k];
-        maxAvg = std::max(maxAvg, sum / k);
+        maxAvg = max(maxAvg, sum / k);
     }
 
     return maxAvg;

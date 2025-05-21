@@ -15,6 +15,7 @@ int search(vector<int> &nums, int target)
         else
             right = mid;
     }
+    
     int pivot = left;
     if (pivot == 0)
     {

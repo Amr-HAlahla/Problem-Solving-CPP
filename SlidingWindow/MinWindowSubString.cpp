@@ -3,6 +3,9 @@
 #include <unordered_map>
 using namespace std;
 
+/**
+ * Finds the smallest substring in 's' containing all characters of 't' using a sliding window.
+ */
 string minWindow(string s, string t)
 {
     unordered_map<char, int> tCount, window;

@@ -2,6 +2,7 @@
 #include <vector>
 using namespace std;
 
+// Returns the maximum sum of any contiguous subarray of size k.
 int maxSumSubarray(vector<int> &nums, int k)
 {
     if (nums.size() < k)
