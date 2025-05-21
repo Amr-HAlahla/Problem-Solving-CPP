@@ -5,14 +5,18 @@ using namespace std;
 
 int lengthOfLongestSubstringKDistinct(const string &s, int k)
 {
-    if (k == 0 || s.empty()) return 0;
+    if (k == 0 || s.empty())
+        return 0;
     unordered_map<char, int> charCount;
     int left = 0, maxLen = 0;
-    for (int right = 0; right < s.length(); right++) {
+    for (int right = 0; right < s.length(); right++)
+    {
         charCount[s[right]]++;
-        while (charCount.size() > k) {
+        while (charCount.size() > k)
+        {
             charCount[s[left]]--;
-            if (charCount[s[left]] == 0) charCount.erase(s[left]);
+            if (charCount[s[left]] == 0)
+                charCount.erase(s[left]);
             left++;
         }
         maxLen = max(maxLen, right - left + 1);
@@ -20,7 +24,8 @@ int lengthOfLongestSubstringKDistinct(const string &s, int k)
     return maxLen;
 }
 
-int main() {
+int main()
+{
     string s = "eceba";
     int k = 2;
     cout << lengthOfLongestSubstringKDistinct(s, k) << endl; // 3 ("ece")

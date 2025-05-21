@@ -9,7 +9,7 @@ struct HeapEntry
     int arrayIdx;
     int elementIdx;
     HeapEntry(int v, int a, int e) : value(v), arrayIdx(a), elementIdx(e) {}
-    bool operator>(const HeapEntry &other) const
+    bool operator>(HeapEntry &other)
     {
         return value > other.value;
     }
@@ -36,7 +36,7 @@ vector<int> mergeKSortedArrays(const vector<vector<int>> &arrays)
         int nextIdx = curr.elementIdx + 1;
         if (nextIdx < arrays[curr.arrayIdx].size())
         {
-            minHeap.emplace(arrays[curr.arrayIdx][nextIdx], curr.arrayIdx, nextIdx);
+            minHeap.push(HeapEntry(arrays[curr.arrayIdx][nextIdx], curr.arrayIdx, nextIdx));
         }
     }
     return result;
