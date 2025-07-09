@@ -4,7 +4,12 @@
 
 using namespace std;
 
-// Returns all pairs of indices whose elements sum to the target.
+/*Problem: Two Sum All Pairs
+Given an array of integers nums and an integer target, return
+all unique pairs of indices such that the numbers at those indices add up to target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+*/
+
 vector<vector<int>> twoSumAllPairs(vector<int> &nums, int target)
 {
     unordered_map<int, vector<int>> map; // key: number, value: list of indices

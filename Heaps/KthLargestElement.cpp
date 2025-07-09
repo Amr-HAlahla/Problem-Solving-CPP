@@ -24,3 +24,9 @@ int main()
     cout << findKthLargest(nums, k) << endl; // 5
     return 0;
 }
+
+/*
+Time Complexity: O(n log k), where n is the number of elements. Each insertion and removal from the heap is O(log k).
+Space Complexity: O(k), for the min-heap storing k elements.
+Explanation: We maintain a heap of size k, so each operation is logarithmic in k, and we process all n elements.
+*/

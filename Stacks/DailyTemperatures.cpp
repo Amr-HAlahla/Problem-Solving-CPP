@@ -3,6 +3,12 @@
 #include <stack>
 using namespace std;
 
+/* Problem: Daily Temperatures
+You are given an array of integers temperatures, where temperatures[i] is the temperature on the ith day. 
+You want to know how many days you would have to wait until a warmer temperature. 
+Return an array result such that result[i] is the number of days you have to wait until.
+*/
+
 vector<int> dailyTemperatures(vector<int> &temperatures)
 {
     int n = temperatures.size();

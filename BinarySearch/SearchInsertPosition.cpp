@@ -2,6 +2,15 @@
 #include <vector>
 using namespace std;
 
+/**
+ * Problem: Search Insert Position
+ * Given a sorted array and a target value, return the index if the target is found.
+ * If not, return the index where it would be if it were inserted in order.
+ * Example: nums = [1, 3, 5, 6], target = 5 -> Output: 2
+ * Example: nums = [1, 3, 5, 6], target = 2 -> Output: 1
+ * Example: nums = [1, 3, 5, 6], target = 7 -> Output: 4
+ */
+
 int searchInsert(vector<int> &nums, int target)
 {
     int low = 0, high = nums.size() - 1;

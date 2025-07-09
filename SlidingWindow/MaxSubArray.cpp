@@ -33,3 +33,9 @@ int main()
     cout << maxSumSubarray(nums, k) << endl; // 16
     return 0;
 }
+
+/*
+Time Complexity: O(n), where n is the number of elements. Each element is added and removed from the window once.
+Space Complexity: O(1), as only a few variables are used.
+Explanation: The sliding window moves across the array, updating the sum in constant time per step.
+*/

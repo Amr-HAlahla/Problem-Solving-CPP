@@ -4,6 +4,11 @@
 #include <vector>
 using namespace std;
 
+/* Problem: Given a string s, find the longest substrings that start and end with the same character.
+ * The order of characters does not matter.
+ * Returns a pair containing a vector of longest substrings and their length.
+ */
+
 pair<vector<string>, int> longestSubstringsSameEnds(const string &s)
 {
     unordered_map<char, int> firstIndex; // char : first index

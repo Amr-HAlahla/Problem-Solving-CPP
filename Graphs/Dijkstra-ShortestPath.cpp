@@ -17,7 +17,7 @@ vector<int> dijkstra(int n, vector<vector<int>> &edges, int src)
     // Step 2: Initialize distances and priority queue
     vector<int> dist(n, INT_MAX);
     dist[src] = 0;
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> pq; // {distance, node}
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq; // {distance, node}
     pq.push({0, src});
 
     // Step 3: Dijkstra's algorithm

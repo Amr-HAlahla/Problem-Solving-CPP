@@ -79,3 +79,9 @@ int main()
 
     return 0;
 }
+
+/*
+Time Complexity: O(n), where n is the number of nodes. Each pointer traverses the list at most twice.
+Space Complexity: O(1), as only two pointers are used.
+Explanation: Floyd's Tortoise and Hare algorithm uses two pointers moving at different speeds to detect a cycle in linear time and constant space.
+*/

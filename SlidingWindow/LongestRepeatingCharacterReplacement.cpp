@@ -1,5 +1,7 @@
 // LongestRepeatingCharacterReplacement.cpp
-// Problem: Given a string s and an integer k, return the length of the longest substring containing the same letter after at most k replacements.
+/* Problem: Given a string s and an integer k, 
+return the length of the longest substring containing the same letter after at most k replacements.
+*/
 #include <iostream>
 #include <string>
 #include <vector>

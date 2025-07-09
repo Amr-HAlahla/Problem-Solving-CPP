@@ -40,3 +40,9 @@ int main()
     cout << numIslands(grid) << endl; // 2
     return 0;
 }
+
+/*
+Time Complexity: O(m * n), where m and n are the dimensions of the grid. Each cell is visited once.
+Space Complexity: O(m * n) in the worst case for the recursion stack (all land).
+Explanation: We perform DFS from each unvisited land cell, marking all connected land, so each cell is processed once.
+*/

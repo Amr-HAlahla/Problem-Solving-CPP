@@ -2,6 +2,11 @@
 #include <vector>
 using namespace std;
 
+/*Problem Brief: 
+Given an array of integers and a target value, remove all instances of the target value in-place and return the new length of the array. 
+The order of elements can be changed, and it doesn't matter what you leave beyond the new length.
+*/
+
 int removeElement(vector<int> &nums, int target)
 {
     int left = 0, right = nums.size() - 1;

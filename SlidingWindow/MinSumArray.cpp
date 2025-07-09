@@ -9,7 +9,7 @@ using namespace std;
  */
 int minSubArray(vector<int> &nums, int target)
 {
-    int minLength = std::numeric_limits<int>::max();
+    int minLength = INT_MAX;
     int sum = 0, left = 0;
 
     for (int right = 0; right < nums.size(); right++)
@@ -24,7 +24,7 @@ int minSubArray(vector<int> &nums, int target)
         }
     }
 
-    return (minLength == std::numeric_limits<int>::max()) ? 0 : minLength;
+    return (minLength == INT_MAX) ? 0 : minLength;
 }
 
 int main()

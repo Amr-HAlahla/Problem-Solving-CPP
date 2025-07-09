@@ -23,8 +23,8 @@ bool isValidBST(TreeNode *root, long minVal, long maxVal)
 
 bool isValidBST(TreeNode *root)
 {
-    return isValidBST(root, LONG_MIN, LONG_MAX)
-};
+    return isValidBST(root, LONG_MIN, LONG_MAX);
+}
 
 int main()
 {

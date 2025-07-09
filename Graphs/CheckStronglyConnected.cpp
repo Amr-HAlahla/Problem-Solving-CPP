@@ -3,6 +3,17 @@
 #include <algorithm>
 using namespace std;
 
+/* Problem Statement:
+ * Given a directed graph with n vertices and m edges, determine if the graph is strongly connected.
+ * A directed graph is strongly connected if there is a path from any vertex to every other vertex.
+ * 
+ * Approach:
+ * 1. Build the adjacency list for the graph and its transposed version.
+ * 2. Perform a DFS from an arbitrary vertex (e.g., vertex 0) on the original graph.
+ * 3. If all vertices are reachable, perform a DFS on the transposed graph.
+ * 4. If all vertices are reachable in the transposed graph as well, the graph is strongly connected.
+ */
+
 void dfs(int u, vector<vector<int>> &adj, vector<bool> &visited)
 {
     visited[u] = true;

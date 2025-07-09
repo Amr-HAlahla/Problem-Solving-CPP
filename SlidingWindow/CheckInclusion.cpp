@@ -3,7 +3,12 @@
 #include <vector>
 using namespace std;
 
-// Function to check if s1's permutation is a substring of s2
+/* Problem Brief:
+ * Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise.
+ * A permutation of a string is an arrangement of its characters in any order.
+ * The order of characters does not matter.
+ */
+
 bool checkInclusion(string s1, string s2)
 {
     int n = s1.size(), m = s2.size();

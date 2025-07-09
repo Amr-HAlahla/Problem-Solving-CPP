@@ -28,7 +28,7 @@ bool isSubTree(TreeNode *root, TreeNode *subRoot)
         return false;
     if (isSameTree(root, subRoot))
         return true;
-    return isSameTree(root->left, subRoot) || isSameTree(root->right, subRoot);
+    return isSubTree(root->left, subRoot) || isSubTree(root->right, subRoot);
 }
 
 int main()

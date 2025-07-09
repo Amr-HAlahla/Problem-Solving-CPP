@@ -52,3 +52,9 @@ int main()
     }
     return 0;
 }
+
+/*
+Time Complexity: O(n^2), where n is the number of elements. Sorting is O(n log n), and for each element, we use a two-pointer scan.
+Space Complexity: O(|output|), for storing the result triplets.
+Explanation: After sorting, for each element, we use two pointers to find pairs, resulting in quadratic time.
+*/

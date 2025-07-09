@@ -88,3 +88,9 @@ int main()
     cout << "Is Empty at end: " << (q.isEmpty() ? "Yes" : "No") << endl;
     return 0;
 }
+
+/*
+Time Complexity: O(1) for all operations (enqueue, dequeue, isEmpty, isFull).
+Space Complexity: O(n), where n is the capacity of the queue.
+Explanation: All operations are performed with direct index calculations, so they are constant time.
+*/

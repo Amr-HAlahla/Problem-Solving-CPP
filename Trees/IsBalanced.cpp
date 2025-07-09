@@ -1,6 +1,10 @@
 #include <iostream>
 using namespace std;
 
+/* Problem: Given a binary tree, determine if it is height-balanced.
+A height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differs by more than one.
+*/
+
 struct TreeNode
 {
     int val;

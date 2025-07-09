@@ -33,10 +33,17 @@ int searchRecursive(vector<int> &nums, int left, int right, int target)
         return searchRecursive(nums, left, mid - 1, target);
 }
 
-int main() {
+int main()
+{
     vector<int> nums = {1, 2, 3, 4, 5};
     int target = 3;
-    cout << search(nums, target) << endl; // 2
+    cout << search(nums, target) << endl;                              // 2
     cout << searchRecursive(nums, 0, nums.size() - 1, target) << endl; // 2
     return 0;
 }
+
+/*
+Time Complexity: O(log n), where n is the number of elements in the array. Each step halves the search space.
+Space Complexity: O(1) for iterative, O(log n) for recursive due to call stack.
+Explanation: Binary search repeatedly divides the array in half, so the number of steps is logarithmic.
+*/

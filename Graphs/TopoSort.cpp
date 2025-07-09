@@ -4,6 +4,21 @@
 #include <queue>
 using namespace std;
 
+/* Topological Sort using DFS and BFS (Kahn's Algorithm)
+   Alogrithm:
+    1. Create a graph from the prerequisites.
+    2. For DFS:
+       - Use a visited array to track the state of each node (0 = unvisited, 1 = visiting, 2 = visited).
+       - Perform DFS and check for cycles.
+       - If a cycle is detected, return an empty vector.
+       - If no cycle, reverse the order of nodes to get the topological sort.
+    3. For BFS (Kahn's Algorithm):
+       - Create an adjacency list and an indegree array.
+         - Initialize a queue with nodes having zero indegree.
+         - Process nodes in the queue, reducing indegree of neighbors.
+         - If all nodes are processed, return the order; otherwise, return an empty vector.
+*/
+
 bool dfs(int node, vector<vector<int>> &adj, vector<int> &visited, vector<int> &order)
 {
     visited[node] = 1; // Mark as visiting

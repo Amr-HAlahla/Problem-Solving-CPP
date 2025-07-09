@@ -2,7 +2,10 @@
 #include <vector>
 using namespace std;
 
-// Returns the length of the longest contiguous subarray with sum <= k using sliding window.
+/* Problem: Given an array of integers nums and an integer k, find the length of the longest subarray
+ * such that the sum of its elements is less than or equal to k.
+ * The order of elements does not matter.
+ */
 int maxSubarrayLength(vector<int> &nums, int k)
 {
     int maxLen = 0, windowSum = 0, left = 0;
@@ -25,6 +28,6 @@ int main()
 {
     vector<int> nums = {1, -1, 5, -2, 3};
     int k = 3;
-    cout << maxSubarrayLength(nums, k) << endl; // 4
+    cout << maxSubarrayLength(nums, k) << endl; // 4 (subarray: [1, -1, 5, -2])
     return 0;
 }

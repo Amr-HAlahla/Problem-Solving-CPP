@@ -25,3 +25,6 @@ __pycache__/
 # Ignore OS files
 .DS_Store
 Thumbs.db
+
+# Ignore content.txt file
+content.txt

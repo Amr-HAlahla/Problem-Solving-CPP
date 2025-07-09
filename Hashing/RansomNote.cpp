@@ -3,6 +3,14 @@
 #include <unordered_map>
 using namespace std;
 
+/**
+ * Problem: Ransom Note
+ * Given a ransom note string and another string containing letters from a magazine,
+ * determine if the ransom note can be constructed using the letters from the magazine.
+ * Each letter in the magazine can only be used once in the ransom note.
+ * Example: ransomNote = "aa", magazine = "aab" -> Output: true
+ */
+
 bool canConstruct(string ransomNote, string magazine)
 {
     unordered_map<char, int> counts;

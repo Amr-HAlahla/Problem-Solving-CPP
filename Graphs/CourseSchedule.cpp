@@ -2,6 +2,16 @@
 #include <vector>
 using namespace std;
 
+/* Problem Statement:
+ * You are given n courses labeled from 0 to n-1 and a list of prerequisite pairs where each pair [a, b] indicates that you must take course b before course a.
+ * Determine if it is possible to finish all courses.
+ * 
+ * Approach:
+ * 1. Build the adjacency list for the directed graph.
+ * 2. Use Depth First Search (DFS) to detect cycles in the graph.
+ * 3. If a cycle is detected, return false; otherwise, return true.
+ */
+
 bool dfs(int node, vector<vector<int>> &adj, vector<int> &visited)
 {
     visited[node] = 1; // Mark as visiting

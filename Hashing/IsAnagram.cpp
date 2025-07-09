@@ -3,7 +3,13 @@
 #include <unordered_map>
 using namespace std;
 
-// Returns true if s and t are anagrams
+/**
+ * Problem: Is Anagram
+ * Given two strings, determine if one is an anagram of the other.
+ * An anagram is a word formed by rearranging the letters of another.
+ * Example: "rat" and "tar" are anagrams, while "hello" and "bello" are not.
+ */
+
 bool isAnagram(string &s, string &t)
 {
     if (s.length() != t.length())

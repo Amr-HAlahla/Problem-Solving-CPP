@@ -1,8 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
+
+/*
+Problem Statement:
+Given a collection of intervals, merge all overlapping intervals.
+For example, given intervals [1,3], [2,6], [8,10], [15,18],
+the merged intervals would be [1,6], [8,10], [15,18].
+*/
 
 vector<vector<int>> merge(vector<vector<int>> &intervals)
 {
@@ -15,7 +21,7 @@ vector<vector<int>> merge(vector<vector<int>> &intervals)
     vector<vector<int>> merged;
     merged.push_back(intervals[0]);
 
-    for (size_t i = 1; i < intervals.size(); ++i)
+    for (int i = 1; i < intervals.size(); ++i)
     {
         if (intervals[i][0] <= merged.back()[1])
         {
@@ -44,3 +50,9 @@ int main()
     cout << endl;
     return 0;
 }
+
+/*
+Time Complexity: O(n log n), where n is the number of intervals. Sorting dominates the runtime, merging is O(n).
+Space Complexity: O(n), for storing the merged intervals.
+Explanation: We sort the intervals, then iterate through them once to merge, so the main cost is sorting.
+*/

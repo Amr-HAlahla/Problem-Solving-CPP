@@ -4,6 +4,29 @@
 #include <algorithm>
 using namespace std;
 
+/* 
+    * Strongly Connected Components (SCC) using Kosaraju's Algorithm
+    * 
+    * This implementation finds all strongly connected components in a directed graph.
+    * It uses two depth-first searches (DFS) to achieve this.
+    * 
+    * Time Complexity: O(n + m), where n is the number of vertices and m is the number of edges.
+    * Space Complexity: O(n + m) for the adjacency list and the stack.
+    * 
+    * Note: The graph is represented as an adjacency list.
+
+Problem Statement:
+ * Given a directed graph with n vertices and m edges, find all strongly connected components (SCCs).
+ * A strongly connected component is a maximal subgraph where every vertex is reachable from every other vertex.
+ * 
+ * Approach:
+ * 1. Build the adjacency list for the graph and its transposed version.
+ * 2. Perform a DFS from each unvisited vertex to fill a stack with vertices in postorder.
+ * 3. Transpose the graph (reverse all edges).
+ * 4. Perform DFS on the transposed graph using the stack to find SCCs.
+ * 5. Each time you pop from the stack, you find a new SCC.
+ */
+
 void dfs1(int u, vector<vector<int>> &adj, vector<bool> &visited, stack<int> &st)
 {
     visited[u] = true;
@@ -36,9 +59,9 @@ vector<vector<int>> getStronglyConnectedComponents(int n, vector<vector<int>> &e
         adjT[v].push_back(u); // transpose
     }
 
-    // Step 1: DFS and push to stack in postorder
     vector<bool> visited(n, false);
     stack<int> st;
+    // Step 1: DFS and push to stack in postorder
     for (int i = 0; i < n; ++i)
     {
         if (!visited[i])

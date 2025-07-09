@@ -3,6 +3,10 @@
 #include <unordered_set>
 using namespace std;
 
+/* Problem: Given a string s, find the length of the longest substring without repeating characters.
+ * This is a classic sliding window problem.
+ */
+
 int lengthOfLongestSubstring(string s)
 {
     if (s.length() == 0)

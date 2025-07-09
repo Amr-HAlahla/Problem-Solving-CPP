@@ -3,6 +3,10 @@
 #include <unordered_map>
 using namespace std;
 
+/* Problem: Given a string s and an integer k, return the length of the longest substring
+ * containing at most k distinct characters.
+ */
+
 int lengthOfLongestSubstringKDistinct(const string &s, int k)
 {
     if (k == 0 || s.empty())

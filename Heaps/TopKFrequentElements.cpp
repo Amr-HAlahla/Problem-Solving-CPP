@@ -10,7 +10,7 @@ vector<int> topKFrequent(vector<int> &nums, int k)
     for (int num : nums)
         freq[num]++;
 
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> minHeap;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> minHeap;
 
     for (auto &[num, count] : freq)
     {
