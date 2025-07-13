@@ -1,23 +1,23 @@
 #include <string>
+#include <algorithm>
 using namespace std;
 
-class Solution
+string convertToBase7(int num)
 {
-public:
-    string convertToBase7(int num)
+    if (num == 0)
+        return "0";
+
+    bool isNegative = num < 0;
+    num = abs(num);
+
+    string result;
+    while (num > 0)
     {
-        if (num == 0)
-            return "0";
-        bool negative = num < 0;
-        num = abs(num);
-        string res;
-        while (num > 0)
-        {
-            res = char('0' + num % 7) + res;
-            num /= 7;
-        }
-        if (negative)
-            res = "-" + res;
-        return res;
+        int remainder = num % 7;
+        result += to_string(remainder); // build in reverse
+        num /= 7;
     }
-};
+
+    reverse(result.begin(), result.end());
+    return isNegative ? "-" + result : result;
+}

@@ -28,6 +28,11 @@ int lengthOfLongestSubstringKDistinct(const string &s, int k)
     return maxLen;
 }
 
+/*
+ * Time Complexity = O(n) => each character is added/removed at most onec.
+ * Space = O(k) => since at most k characters in the map.
+ */
+
 int main()
 {
     string s = "eceba";

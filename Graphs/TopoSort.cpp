@@ -60,10 +60,19 @@ vector<int> findOrderDFS(int numCourses, vector<vector<int>> &prerequisites)
 }
 
 // BFS (Kahn's Algorithm) implementation
+/**
+ * Finds a possible order to finish all courses given their prerequisites using BFS (Kahn's Algorithm).
+ *
+ * @param numCourses The total number of courses to be taken.
+ * @param prerequisites A list of prerequisite pairs where each pair [a, b] indicates that course 'a' depends on course 'b'.
+ * @return A vector containing one possible order to finish all courses. Returns an empty vector if it is impossible to finish all courses (i.e., there is a cycle).
+ *
+ * Note: The 'indegree' vector is used to keep track of the number of prerequisites (incoming edges) each course has.
+ */
 vector<int> findOrderBFS(int numCourses, vector<vector<int>> &prerequisites)
 {
     vector<vector<int>> adj(numCourses);
-    vector<int> indegree(numCourses, 0);
+    vector<int> indegree(numCourses, 0); //
     for (auto &pre : prerequisites)
     {
         adj[pre[1]].push_back(pre[0]);
@@ -125,3 +134,12 @@ int main()
     }
     return 0;
 }
+
+/*
+| Concept         | Purpose                                                             |
+| --------------- | ------------------------------------------------------------------- |
+| In-degree count | Tracks prerequisites                                                |
+| Queue           | For zero-indegree nodes                                             |
+| Cycle detection | If not all nodes are visited, graph has cycle                       |
+| Use case        | **Dependency resolution**, **scheduling**, **formal flow modeling** |
+*/

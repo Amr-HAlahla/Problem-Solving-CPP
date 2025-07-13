@@ -9,15 +9,19 @@ struct HeapEntry
     int arrayIdx;
     int elementIdx;
     HeapEntry(int v, int a, int e) : value(v), arrayIdx(a), elementIdx(e) {}
-    bool operator>(const HeapEntry &other)
+};
+
+struct HeapEntryComparator
+{
+    bool operator()(const HeapEntry &a, const HeapEntry &b) const
     {
-        return value > other.value;
+        return a.value > b.value; // min-heap: smallest value has highest priority
     }
 };
 
 vector<int> mergeKSortedArrays(const vector<vector<int>> &arrays)
 {
-    priority_queue<HeapEntry, vector<HeapEntry>, greater<HeapEntry>> minHeap;
+    priority_queue<HeapEntry, vector<HeapEntry>, HeapEntryComparator> minHeap;
     vector<int> result;
     int k = arrays.size();
     // Initialize heap with first element of each array
@@ -37,7 +41,7 @@ vector<int> mergeKSortedArrays(const vector<vector<int>> &arrays)
         int nextIdx = curr.elementIdx + 1;
         if (nextIdx < arrays[curr.arrayIdx].size())
         {
-            minHeap.push(HeapEntry(arrays[curr.arrayIdx][nextIdx], curr.arrayIdx, nextIdx));
+            minHeap.emplace(arrays[curr.arrayIdx][nextIdx], curr.arrayIdx, nextIdx);
         }
     }
     return result;

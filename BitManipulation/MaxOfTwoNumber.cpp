@@ -5,7 +5,7 @@ using namespace std;
 int getMax(int a, int b)
 {
     int diff = a - b;
-    int k = (diff >> 31) & 1; // get the Sign bit of the difference.
+    int k = (diff >> 31) & 1; // ANDing with 1 for Isolation, to extract the sign bit.
 
     return a - (k * diff);
 
